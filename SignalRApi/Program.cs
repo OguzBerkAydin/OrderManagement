@@ -1,3 +1,9 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+
 namespace SignalRApi
 {
     public class Program
@@ -5,6 +11,10 @@ namespace SignalRApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<SignalRContext>();
+            builder.Services.AddScoped<IAboutService, AboutManager>();
+            builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 
             // Add services to the container.
 
