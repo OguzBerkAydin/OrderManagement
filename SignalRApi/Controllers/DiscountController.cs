@@ -22,7 +22,7 @@ namespace SignalRApi.Controllers
         [HttpGet]
         public IActionResult DiscountList()
         {
-            var values = _discountService.TGetAll();
+            var values = _mapper.Map<List<ResultDiscountDto>>(_discountService.TGetAll());
             return Ok(values);
         }
         [HttpPost]
