@@ -3,6 +3,7 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using System.Reflection;
 
 namespace SignalRApi
 {
@@ -13,8 +14,22 @@ namespace SignalRApi
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddDbContext<SignalRContext>();
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            builder.Services.AddScoped<IBookingService , BookingManager>();
+            builder.Services.AddScoped<IBookingDal, EfBookingDal>();
+
             builder.Services.AddScoped<IAboutService, AboutManager>();
             builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+
+            builder.Services.AddScoped<ICategoryService, CategoryManager>();
+            builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
+
+            builder.Services.AddScoped<IContactService, ContactManager>();
+            builder.Services.AddScoped<IContactDal, EfContactDal>();
+
+            builder.Services.AddScoped<IDiscountService, DiscountManager>();
+            builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
 
             // Add services to the container.
 
