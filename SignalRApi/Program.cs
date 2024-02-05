@@ -37,6 +37,12 @@ namespace SignalRApi
             builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
             builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
+            builder.Services.AddScoped<IFeatureService, FeatureManager>();
+            builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
+
+            builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+            builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
             // Add services to the container.
 
             builder.Services.AddControllers();
