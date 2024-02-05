@@ -30,6 +30,9 @@ namespace SignalRApi
 
             builder.Services.AddScoped<IDiscountService, DiscountManager>();
             builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
+            
+            builder.Services.AddScoped<IProductService, ProductManager>();
+            builder.Services.AddScoped<IProductDal, EfProductDal>();
 
             // Add services to the container.
 
