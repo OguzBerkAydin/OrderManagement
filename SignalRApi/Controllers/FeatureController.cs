@@ -36,7 +36,7 @@ namespace SignalRApi.Controllers
             });
             return Ok("Feature eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteFeature(int id)
         {
             var value = _featureService.TGet(id);
@@ -54,7 +54,7 @@ namespace SignalRApi.Controllers
             });
             return Ok("Feature güncelledi");
         }
-        [HttpGet("GetFeature")]
+        [HttpGet("{id}")]
         public IActionResult GetFeature(int id)
         {
             var value = _featureService.TGet(id);
