@@ -47,7 +47,7 @@ namespace SignalRWebUI
 			app.MapControllerRoute(
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
-			app.MapHub<SignalRHub>("/signalrhub");
+			app.MapHub<SignalRHub>("/signalrhub"); //
 
 			app.Run();
 		}
