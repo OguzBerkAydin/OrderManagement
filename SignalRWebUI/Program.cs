@@ -1,3 +1,5 @@
+using SignalRApi.Hubs;
+
 namespace SignalRWebUI
 {
 	public class Program
@@ -45,6 +47,7 @@ namespace SignalRWebUI
 			app.MapControllerRoute(
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
+			app.MapHub<SignalRHub>("/signalrhub");
 
 			app.Run();
 		}
