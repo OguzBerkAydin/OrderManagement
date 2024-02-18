@@ -25,12 +25,17 @@ namespace BusinessLayer.Concrete
 
         public Product TGet(int id)
         {
-            return _productDal.Get(id);
+            return _productDal.Get(id); 
         }
 
         public List<Product> TGetAll()
         {
             return _productDal.GetAll();
+        }
+
+        public List<Product> TGetProductsWithCategories()
+        {
+            return _productDal.GetProductsWithCategories();
         }
 
         public void TUpdate(Product entity)
