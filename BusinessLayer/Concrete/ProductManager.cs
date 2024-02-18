@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
 
         public Product TGet(int id)
         {
-            return _productDal.Get(id);
+            return _productDal.Get(id); 
         }
 
         public List<Product> TGetAll()

@@ -8,18 +8,7 @@ namespace SignalRWebUI
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			builder.Services.AddCors(opt =>
-			{
-				opt.AddPolicy("CorsPolicy", builder =>
-				{
-					builder.AllowAnyHeader()
-					.AllowAnyMethod()
-					.SetIsOriginAllowed((host) => true)
-					.AllowCredentials();
-
-				});
-			});
-			builder.Services.AddSignalR();
+			
 			// Add services to the container.
 			builder.Services.AddHttpClient();
 			builder.Services.AddControllersWithViews();
@@ -35,7 +24,7 @@ namespace SignalRWebUI
 			}
 
 
-			app.UseCors("CorsPolicy");
+			
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
@@ -47,7 +36,7 @@ namespace SignalRWebUI
 			app.MapControllerRoute(
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
-			app.MapHub<SignalRHub>("/signalrhub"); //
+			
 
 			app.Run();
 		}
