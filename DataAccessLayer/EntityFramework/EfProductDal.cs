@@ -24,6 +24,34 @@ namespace DataAccessLayer.EntityFramework
 			using var context = new SignalRContext();
 			return context.Products.Count();
 		}
+
+		public int ProductCountByCategoryName(string categoryName)
+		{
+			using var context = new SignalRContext();
+			return context.Products.Count(product => product.Category.CategoryName == categoryName);
+		}
+
+		public string ProductNameByMaxPrice()
+		{
+			using var context = new SignalRContext();
+			var maxPrice = context.Products.Max(p => p.Price);
+			return context.Products.FirstOrDefault(p => p.Price == maxPrice).ProductName;
+
+		}
+
+		public string ProductNameByMinPrice()
+		{
+			using var context = new SignalRContext();
+			var minPrice = context.Products.Min(p => p.Price);
+			return context.Products.FirstOrDefault(p => p.Price == minPrice).ProductName;
+
+		}
+
+		public decimal ProductPriceAvg()
+		{
+			using var context = new SignalRContext();
+			return context.Products.Average(product => product.Price);
+		}
 	}
 
 }

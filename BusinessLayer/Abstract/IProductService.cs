@@ -6,5 +6,9 @@ namespace BusinessLayer.Abstract
     {
         List<Product> TGetProductsWithCategories();
         int TProductCount();
+        int TProductCountByCategoryName(string categoryName);
+        decimal TProductPriceAvg();
+        string TProductNameByMaxPrice();
+        string TProductNameByMinPrice();
     }
 }
