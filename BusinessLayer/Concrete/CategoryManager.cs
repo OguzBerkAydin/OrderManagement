@@ -13,7 +13,12 @@ namespace BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
-        public void TAdd(Category entity)
+		public int TCategoryCount()
+		{
+			return _categoryDal.CategoryCount();
+		}
+
+		public void TAdd(Category entity)
         {
             _categoryDal.Add(entity);
         }
@@ -37,5 +42,15 @@ namespace BusinessLayer.Concrete
         {
             _categoryDal.Update(entity);
         }
-    }
+
+		public int TActiveCategoryCount()
+		{
+			return _categoryDal.ActiveCategoryCount();
+		}
+
+		public int TPassiveCategoryCount()
+		{
+			return _categoryDal.PassiveCategoryCount();
+		}
+	}
 }
