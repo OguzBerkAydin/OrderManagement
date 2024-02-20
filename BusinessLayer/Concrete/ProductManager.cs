@@ -47,5 +47,25 @@ namespace BusinessLayer.Concrete
         {
             _productDal.Update(entity);
         }
-    }
+
+		public int TProductCountByCategoryName(string categoryName)
+		{
+            return _productDal.ProductCountByCategoryName(categoryName);
+		}
+
+		public decimal TProductPriceAvg()
+		{
+			return _productDal.ProductPriceAvg();
+		}
+
+		public string TProductNameByMaxPrice()
+		{
+			return _productDal.ProductNameByMaxPrice();
+		}
+
+		public string TProductNameByMinPrice()
+		{
+			return _productDal.ProductNameByMinPrice();
+		}
+	}
 }
