@@ -11,10 +11,22 @@ namespace DataAccessLayer.EntityFramework
         {
         }
 
+		public int ActiveCategoryCount()
+		{
+			using var context = new SignalRContext();
+			return context.Categories.Count(category => category.CategoryStatus == true);
+		}
+
 		public int CategoryCount()
 		{
 			using var context = new SignalRContext();
 			return context.Categories.Count();
+		}
+
+		public int PassiveCategoryCount()
+		{
+			using var context = new SignalRContext();
+			return context.Categories.Count(category => category.CategoryStatus == false);
 		}
 	}
 
