@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
 			_orderDal = orderDal;
 		}
 
+		public int TActiveOrderCount()
+		{
+			return _orderDal.ActiveOrderCount();
+		}
+
 		public void TAdd(Order entity)
 		{
 			throw new NotImplementedException();
@@ -36,6 +41,11 @@ namespace BusinessLayer.Concrete
 		public List<Order> TGetAll()
 		{
 			throw new NotImplementedException();
+		}
+
+		public int TTotalOrderCount()
+		{
+			return _orderDal.TotalOrderCount();
 		}
 
 		public void TUpdate(Order entity)

@@ -15,5 +15,17 @@ namespace DataAccessLayer.EntityFramework
 		public EfOrderDal(SignalRContext context) : base(context)
 		{
 		}
+
+		public int ActiveOrderCount()
+		{
+			var context = new SignalRContext();
+			return context.Orders.Count(p => p.Description == "Müşteri Masada");
+		}
+
+		public int TotalOrderCount()
+		{
+			var context = new SignalRContext();
+			return context.Orders.Count();
+		}
 	}
 }
