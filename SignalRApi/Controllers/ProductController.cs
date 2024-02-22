@@ -33,9 +33,9 @@ namespace SignalRApi.Controllers
             return Ok(_productService.TProductCount());
         }
 		[HttpGet("ProductPriceAvg")]
-		public IActionResult ProductPriceAvg()
+		public IActionResult ProductPriceAvg(string? categoryName = null)
 		{
-			return Ok(_productService.TProductPriceAvg());
+			return Ok(_productService.TProductPriceAvg(categoryName));
 		}
 		[HttpGet("ProductNameByMinPrice")]
 		public IActionResult ProductNameByMinPrice()

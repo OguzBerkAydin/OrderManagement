@@ -7,7 +7,7 @@ namespace DataAccessLayer.Abstract
         List<Product> GetProductsWithCategories();
         int ProductCount();
         int ProductCountByCategoryName(string categoryName);
-        decimal ProductPriceAvg();
+        decimal ProductPriceAvg(string? categoryName = null);
         string ProductNameByMaxPrice();
         string ProductNameByMinPrice();
     }

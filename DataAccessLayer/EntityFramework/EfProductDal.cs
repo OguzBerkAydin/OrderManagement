@@ -47,10 +47,14 @@ namespace DataAccessLayer.EntityFramework
 
 		}
 
-		public decimal ProductPriceAvg()
+		public decimal ProductPriceAvg(string? categoryName = null)
 		{
 			using var context = new SignalRContext();
-			return context.Products.Average(product => product.Price);
+			if (string.IsNullOrEmpty(categoryName))
+				return context.Products.Average(product => product.Price);
+
+			return context.Products.Where(p => p.Category.CategoryName == categoryName).Average(pr => pr.Price);
+
 		}
 	}
 

@@ -53,11 +53,6 @@ namespace BusinessLayer.Concrete
             return _productDal.ProductCountByCategoryName(categoryName);
 		}
 
-		public decimal TProductPriceAvg()
-		{
-			return _productDal.ProductPriceAvg();
-		}
-
 		public string TProductNameByMaxPrice()
 		{
 			return _productDal.ProductNameByMaxPrice();
@@ -66,6 +61,11 @@ namespace BusinessLayer.Concrete
 		public string TProductNameByMinPrice()
 		{
 			return _productDal.ProductNameByMinPrice();
+		}
+
+		public decimal TProductPriceAvg(string? categoryName = null)
+		{
+			return _productDal.ProductPriceAvg(categoryName);
 		}
 	}
 }
