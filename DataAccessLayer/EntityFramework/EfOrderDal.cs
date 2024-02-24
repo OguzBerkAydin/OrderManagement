@@ -22,6 +22,12 @@ namespace DataAccessLayer.EntityFramework
 			return context.Orders.Count(p => p.Description == "Müşteri Masada");
 		}
 
+		public decimal LastOrderPrice()
+		{
+			var context = new SignalRContext();
+			return context.Orders.OrderByDescending(order => order.TotalPrice).Take(1).Select(o => o.TotalPrice).FirstOrDefault();
+		}
+
 		public int TotalOrderCount()
 		{
 			var context = new SignalRContext();

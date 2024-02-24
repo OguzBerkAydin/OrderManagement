@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
 			_orderDal = orderDal;
 		}
 
+		public decimal TLastOrderPrice()
+		{
+			return _orderDal.LastOrderPrice();
+		}
+
 		public int TActiveOrderCount()
 		{
 			return _orderDal.ActiveOrderCount();
