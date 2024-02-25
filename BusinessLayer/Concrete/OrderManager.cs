@@ -57,5 +57,10 @@ namespace BusinessLayer.Concrete
 		{
 			throw new NotImplementedException();
 		}
+
+		public decimal TTotayTotalPrice()
+		{
+			return _orderDal.TotayTotalPrice();
+		}
 	}
 }
