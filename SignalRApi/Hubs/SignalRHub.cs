@@ -25,5 +25,30 @@ namespace SignalRApi.Hubs
 			var value = _productService.TProductCount();
 			await Clients.All.SendAsync("ReceiveProductCount", value);
 		}
-	}
+		public async Task SendActiveCategoryCount()
+		{
+			var value = _categoryService.TActiveCategoryCount();
+			await Clients.All.SendAsync("ReceiveActiveCategoryCount", value);
+		}
+		public async Task SendPassiveCategoryCount()
+		{
+			var value = _categoryService.TPassiveCategoryCount();
+			await Clients.All.SendAsync("ReceivePassiveCategoryCount", value);
+		}
+		public async Task SendDrinkCount()
+		{
+			var value = _productService.TProductCountByCategoryName("icecek");
+			await Clients.All.SendAsync("ReceiveDrinkCount", value);
+		}
+		public async Task SendDessertCount()
+		{
+			var value = _productService.TProductCountByCategoryName("tatlı");
+			await Clients.All.SendAsync("ReceiveDessertCount", value);
+		}
+        public async Task SendProductPriceAvg()
+        {
+            var value = _productService.TProductPriceAvg();
+            await Clients.All.SendAsync("ReceiveProductPriceAvg", value);
+        }
+    }
 }

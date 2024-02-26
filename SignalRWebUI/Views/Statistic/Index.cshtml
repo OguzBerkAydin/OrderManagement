@@ -21,6 +21,11 @@
 					setInterval(() => {
 						connection.invoke("SendCategoryCount");
 						connection.invoke("SendProductCount");
+						connection.invoke("SendActiveCategoryCount");
+						connection.invoke("SendPassiveCategoryCount");
+						connection.invoke("SendDrinkCount");
+						connection.invoke("SendDessertCount");
+						connection.invoke("SendProductPriceAvg");
 
 					}, 1000);
 
@@ -31,6 +36,21 @@
 				});
 				connection.on("ReceiveProductCount", (value) => {
 					$("#productcount").text(value);
+				});
+				connection.on("ReceiveActiveCategoryCount", (value) => {
+					$("#activecategorycount").text(value);
+				});
+				connection.on("ReceivePassiveCategoryCount", (value) => {
+					$("#passivecategorycount").text(value);
+				});
+				connection.on("ReceiveDrinkCount", (value) => {
+					$("#drinkcount").text(value);
+				});
+				connection.on("ReceiveDessertCount", (value) => {
+					$("#dessertcount").text(value);
+				});
+				connection.on("ReceiveProductPriceAvg", (value) => {
+					$("#productpriceavg").text(value);
 				});
 
 			});
@@ -43,7 +63,7 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-certificate"></i>
+									<i class="la la-th-list"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
@@ -62,7 +82,7 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-shopping-cart"></i>
+									<i class="la la-cubes"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
@@ -81,13 +101,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-newspaper-o"></i>
+									<i class="la la-check-circle"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Aktif Kategori Sayısı</p>
+									<h4 class="card-title" id="activecategorycount"></h4>
 								</div>
 							</div>
 						</div>
@@ -100,13 +120,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-check-circle"></i>
+									<i class="la la-times-circle"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">Pasif Kategori Sayısı</p>
+									<h4 class="card-title" id="passivecategorycount"></h4>
 								</div>
 							</div>
 						</div>
@@ -126,8 +146,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Visitors</p>
-									<h4 class="card-title">1,294</h4>
+									<p class="card-category">İçecek Sayısı</p>
+									<h4 class="card-title" id="drinkcount"></h4>
 								</div>
 							</div>
 						</div>
@@ -145,8 +165,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Sales</p>
-									<h4 class="card-title">$ 1,345</h4>
+									<p class="card-category">Tatlı Sayısı</p>
+									<h4 class="card-title" id="dessertcount"></h4>
 								</div>
 							</div>
 						</div>
@@ -159,13 +179,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-newspaper-o"></i>
+									<i class="la la-money"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Ortalama Fiyat</p>
+									<h4 class="card-title" id="productpriceavg"></h4>
 								</div>
 							</div>
 						</div>
