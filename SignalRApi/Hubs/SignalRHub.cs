@@ -8,11 +8,17 @@ namespace SignalRApi.Hubs
 	{
 		private readonly ICategoryService _categoryService;
 		private readonly IProductService _productService;
+		private readonly IOrderService _orderService;
+		private readonly IMoneyCaseService _moneyCaseService;
+		private readonly IRestaurantTableService _restaurantTableService;
 
-		public SignalRHub(ICategoryService categoryService, IProductService productService)
+		public SignalRHub(ICategoryService categoryService, IProductService productService, IOrderService orderService, IMoneyCaseService moneyCaseService, IRestaurantTableService restaurantTableService)
 		{
 			_categoryService = categoryService;
 			_productService = productService;
+			_orderService = orderService;
+			_moneyCaseService = moneyCaseService;
+			_restaurantTableService = restaurantTableService;
 		}
 
 		public async Task SendCategoryCount()
@@ -59,6 +65,41 @@ namespace SignalRApi.Hubs
 		{
 			var value = _productService.TProductNameByMinPrice();
 			await Clients.All.SendAsync("ReceiveCheapestProduct", value);
+		}
+		public async Task SendDessertProductAvg()
+		{
+			var value = _productService.TProductPriceAvg("tatlı");
+			await Clients.All.SendAsync("ReceiveDessertProductAvg", value.ToString("0.00") + "₺");
+		}
+		public async Task SendTotalOrderCount()
+		{
+			var value = _orderService.TTotalOrderCount();
+			await Clients.All.SendAsync("ReceiveTotalOrderCount", value);
+		}
+		public async Task SendActiveOrderCount()
+		{
+			var value = _orderService.TActiveOrderCount();
+			await Clients.All.SendAsync("ReceiveActiveOrderCount", value);
+		}
+		public async Task SendLastOrderTotalPrice()
+		{
+			var value = _orderService.TLastOrderPrice();
+			await Clients.All.SendAsync("ReceiveLastOrderTotalPrice", value.ToString("0.00") + "₺");
+		}
+		public async Task SendTotalAmountOfMoneyCase()
+		{
+			var value = _moneyCaseService.TTotalAmountOfMoneyCase();
+			await Clients.All.SendAsync("ReceiveTotalAmountOfMoneyCase", value.ToString("0.00") + "₺");
+		}
+		public async Task SendTodayTotalPrice()
+		{
+			var value = _orderService.TTotayTotalPrice();
+			await Clients.All.SendAsync("ReceiveTodayTotalPrice", value.ToString("0.00") + "₺");
+		}
+		public async Task SendTotalTableCount()
+		{
+			var value = _restaurantTableService.TTotalTableCount();
+			await Clients.All.SendAsync("ReceiveTotalTableCount", value);
 		}
 	}
 }
