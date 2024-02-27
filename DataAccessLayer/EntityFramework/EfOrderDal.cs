@@ -25,7 +25,9 @@ namespace DataAccessLayer.EntityFramework
 		public decimal LastOrderPrice()
 		{
 			var context = new SignalRContext();
-			return context.Orders.OrderByDescending(order => order.TotalPrice).Take(1).Select(o => o.TotalPrice).FirstOrDefault();
+			//return context.Orders.OrderByDescending(order => order.TotalPrice).Take(1).Select(o => o.TotalPrice).FirstOrDefault();
+			return context.Orders.OrderByDescending(order => order.Date).Select(o=>o.TotalPrice).FirstOrDefault();
+
 		}
 
 		public decimal TotayTotalPrice()
