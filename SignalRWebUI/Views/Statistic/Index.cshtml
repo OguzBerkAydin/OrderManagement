@@ -26,6 +26,8 @@
 						connection.invoke("SendDrinkCount");
 						connection.invoke("SendDessertCount");
 						connection.invoke("SendProductPriceAvg");
+						connection.invoke("SendMostExpensiveProduct");
+						connection.invoke("SendCheapestProduct");
 
 					}, 1000);
 
@@ -51,6 +53,12 @@
 				});
 				connection.on("ReceiveProductPriceAvg", (value) => {
 					$("#productpriceavg").text(value);
+				});
+				connection.on("ReceiveMostExpensiveProduct", (value) => {
+					$("#mostexpensiveproduct").text(value);
+				});
+				connection.on("ReceiveCheapestProduct", (value) => {
+					$("#cheapestproduct").text(value);
 				});
 
 			});
@@ -203,8 +211,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">En Pahalı Ürün</p>
+									<h4 class="card-title" id="mostexpensiveproduct"></h4>
 								</div>
 							</div>
 						</div>
@@ -224,8 +232,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Visitors</p>
-									<h4 class="card-title">1,294</h4>
+									<p class="card-category">En Ucuz Ürün</p>
+									<h4 class="card-title" id="cheapestproduct"></h4>
 								</div>
 							</div>
 						</div>

@@ -48,7 +48,17 @@ namespace SignalRApi.Hubs
         public async Task SendProductPriceAvg()
         {
             var value = _productService.TProductPriceAvg();
-            await Clients.All.SendAsync("ReceiveProductPriceAvg", value);
+            await Clients.All.SendAsync("ReceiveProductPriceAvg", value.ToString("0.00") + "₺");
         }
-    }
+		public async Task SendMostExpensiveProduct()
+		{
+			var value = _productService.TProductNameByMaxPrice();
+			await Clients.All.SendAsync("ReceiveMostExpensiveProduct", value);
+		}
+		public async Task SendCheapestProduct()
+		{
+			var value = _productService.TProductNameByMinPrice();
+			await Clients.All.SendAsync("ReceiveCheapestProduct", value);
+		}
+	}
 }
