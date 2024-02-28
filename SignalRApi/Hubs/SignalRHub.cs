@@ -100,6 +100,6 @@ namespace SignalRApi.Hubs
 		{
 			var value = _restaurantTableService.TTotalTableCount();
 			await Clients.All.SendAsync("ReceiveTotalTableCount", value);
-		}
+		} 
 	}
 }
