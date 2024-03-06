@@ -69,9 +69,12 @@ namespace SignalRApi
 			builder.Services.AddScoped<IRestaurantTableService, RestaurantTableManager>();
 			builder.Services.AddScoped<IRestaurantTableDal, EfRestaurantTableDal>();
 
-			// Add services to the container.
+            builder.Services.AddScoped<ISliderService, SliderManager>();
+            builder.Services.AddScoped<ISliderDal, EfSliderDal>();
 
-			builder.Services.AddControllers();
+            // Add services to the container.
+
+            builder.Services.AddControllers();
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
