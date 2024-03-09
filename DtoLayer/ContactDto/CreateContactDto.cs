@@ -9,6 +9,6 @@
         public string FooterDescription { get; set; }
         public string OpenDays { get; set; }
         public string OpenDescription { get; set; }
-        public string OpenOurs { get; set; }
+        public string OpenOurs { get; set; } 
     }
 }
