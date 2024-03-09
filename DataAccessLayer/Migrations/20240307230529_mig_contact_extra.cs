@@ -8,7 +8,7 @@ namespace DataAccessLayer.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
+            migrationBuilder.AddColumn<string>( 
                 name: "FooterTitle",
                 table: "Contacts",
                 type: "nvarchar(max)",
