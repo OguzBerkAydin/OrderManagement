@@ -15,7 +15,7 @@ namespace DataAccessLayer.Migrations
     [Migration("20240307230529_mig_contact_extra")]
     partial class mig_contact_extra
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder) 
         {
 #pragma warning disable 612, 618
             modelBuilder
