@@ -1,8 +1,6 @@
-﻿using EntityLayer.Entities;
-
-namespace SignalRWebUI.Dtos.BasketDtos
+﻿namespace SignalRApi.Models
 {
-    public class ResultBasketDto
+    public class RsultBasketListWithProducts
     {
         public int BasketID { get; set; }
         public decimal Price { get; set; }
@@ -11,7 +9,5 @@ namespace SignalRWebUI.Dtos.BasketDtos
         public int ProductId { get; set; }
         public int RestaurantTableId { get; set; }
         public string ProductName { get; set; }
-
     }
-
 }
