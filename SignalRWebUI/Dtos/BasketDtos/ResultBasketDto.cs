@@ -10,6 +10,8 @@ namespace SignalRWebUI.Dtos.BasketDtos
         public decimal TotalPrice { get; set; }
         public int ProductId { get; set; }
         public int RestaurantTableId { get; set; }
+        public string ProductName { get; set; }
+
     }
 
 }
