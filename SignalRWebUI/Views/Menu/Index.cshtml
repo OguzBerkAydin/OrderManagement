@@ -136,6 +136,7 @@
             $.ajax({
                 type: 'post',
                 data: { item: id },
+                url: "/Menu/AddBasket/" + id,
                 contentType: 'json',
                 success: function () {
                     Swal.fire({
