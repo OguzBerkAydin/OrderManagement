@@ -50,6 +50,7 @@
                         tax = basketTotalPrice / 100 * 10;
                         basketTotalPriceWithTax = basketTotalPrice + tax;
                         basketTotalPrice = Model.Sum(x => x.Price);
+                        count++;
                         <tbody class="align-middle">
                         <tr >
                             <td class="align-middle">@count</td>

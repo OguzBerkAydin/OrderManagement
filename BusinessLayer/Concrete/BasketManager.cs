@@ -25,12 +25,12 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Basket entity)
         {
-            throw new NotImplementedException();
+             _basketDal.Delete(entity);
         }
 
         public Basket TGet(int id)
         {
-            throw new NotImplementedException();
+            return _basketDal.Get(id);
         }
 
         public List<Basket> TGetAll()
