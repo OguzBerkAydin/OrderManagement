@@ -42,7 +42,7 @@ namespace SignalRApi.Controllers
             }).ToList();
             return Ok(values);
         }
-        [HttpPost("AddBasket")]
+        [HttpPost]
         public IActionResult CreateBasket(CreateBasketDto createBasketDto)
         {
             using var context = new SignalRContext();
