@@ -76,7 +76,10 @@ namespace SignalRApi
             builder.Services.AddScoped<IBasketService, BasketManager>();
             builder.Services.AddScoped<IBasketDal, EfBasketDal>();
 
-            builder.Services.AddControllersWithViews()
+			builder.Services.AddScoped<INotificationService, NotificatonManager>();
+			builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
+
+			builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
             // Add services to the container.
