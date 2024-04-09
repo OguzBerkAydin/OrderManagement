@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
 	public interface INotificationService : IGenericService<Notification>
 	{
 		int TNotificationCount(bool status);
+		List<Notification> TGetAllNotifications(bool status);
 	}
 }

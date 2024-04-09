@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
 	public interface INotificationDal : IGenericDal<Notification>
 	{
 		int NotificationCount(bool status);
+		List<Notification> GetAllNotifications(bool status);
 	}
 }
