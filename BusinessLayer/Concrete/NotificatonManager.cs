@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
 			return _notificationDal.GetAll();
 		}
 
+		public List<Notification> TGetAllNotifications(bool status)
+		{
+			return _notificationDal.GetAllNotifications(status);
+		}
+
 		public int TNotificationCount(bool status)
 		{
 			return _notificationDal.NotificationCount(status);
