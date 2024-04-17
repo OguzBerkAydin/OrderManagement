@@ -24,6 +24,11 @@ namespace SignalRApi.Hubs
 			_bookingService = bookingService;
 			_notificationService = notificationService;
 		}
+		public async Task SendNotificationListByFalse()
+		{
+			var falseValues = _notificationService.TGetAllNotifications(false);
+			await Clients.All.SendAsync("ReceiveNotificationListByFalse", falseValues);
+		}
 		public async Task SendNotificationCountByFalse()
 		{
 			var falseValues = _notificationService.TNotificationCount(false);
