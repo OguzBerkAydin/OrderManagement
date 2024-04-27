@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
 			return _notificationDal.NotificationCount(status);
 		}
 
+		public void TNotificationStatusChange(bool status, int id)
+		{
+			_notificationDal.NotificationStatusChange(status, id);
+		}
+
 		public void TUpdate(Notification entity)
 		{
 			_notificationDal.Update(entity);

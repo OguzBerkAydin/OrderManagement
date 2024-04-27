@@ -30,5 +30,14 @@ namespace DataAccessLayer.EntityFramework
 			using var context = new SignalRContext();
 			return context.Notifications.Count(notification => notification.Status == status);
 		}
+
+		public void NotificationStatusChange(bool status, int id)
+		{
+			using var context = new SignalRContext();
+			var value = context.Notifications.Find(id);
+			value.Status = status;
+			context.SaveChanges();
+
+		}
 	}
 }

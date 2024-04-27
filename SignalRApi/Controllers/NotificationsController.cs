@@ -59,6 +59,13 @@ namespace SignalRApi.Controllers
 			return Ok(_notificationService.TGet(id));
 			
 		}
+		[HttpGet("NotificationStatusChange/{id}")]
+		public IActionResult NotificationStatusChange(bool status, int id)
+		{
+			_notificationService.TNotificationStatusChange(status, id);
+			return Ok("Durum Değiştirildi");
+
+		}
 		[HttpPut]
 		public IActionResult UpdateNotification(UpdateNotificationDto updateNotificationDto)
 		{

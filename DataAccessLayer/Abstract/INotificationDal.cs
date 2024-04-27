@@ -11,5 +11,6 @@ namespace DataAccessLayer.Abstract
 	{
 		int NotificationCount(bool status);
 		List<Notification> GetAllNotifications(bool status);
+		void NotificationStatusChange(bool status, int id);
 	}
 }
