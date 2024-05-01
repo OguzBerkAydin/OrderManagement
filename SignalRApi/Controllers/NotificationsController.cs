@@ -46,7 +46,7 @@ namespace SignalRApi.Controllers
 			_notificationService.TAdd(notification);
 			return Ok("Ekleme işlemi Başarıyla Yapıldı");
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public IActionResult DeleteNotification(int id)
 		{
 			var value = _notificationService.TGet(id);
@@ -58,6 +58,13 @@ namespace SignalRApi.Controllers
 		{
 			return Ok(_notificationService.TGet(id));
 			
+		}
+		[HttpGet("NotificationStatusChange/{id}")]
+		public IActionResult NotificationStatusChange(bool status, int id)
+		{
+			_notificationService.TNotificationStatusChange(status, id);
+			return Ok("Durum Değiştirildi");
+
 		}
 		[HttpPut]
 		public IActionResult UpdateNotification(UpdateNotificationDto updateNotificationDto)
