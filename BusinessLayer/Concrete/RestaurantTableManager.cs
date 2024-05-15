@@ -20,22 +20,22 @@ namespace BusinessLayer.Concrete
 
 		public void TAdd(RestaurantTable entity)
 		{
-			throw new NotImplementedException();
+			_restaurantTableDal.Add(entity);
 		}
 
 		public void TDelete(RestaurantTable entity)
 		{
-			throw new NotImplementedException();
+			_restaurantTableDal.Delete(entity);
 		}
 
 		public RestaurantTable TGet(int id)
 		{
-			throw new NotImplementedException();
+			return _restaurantTableDal.Get(id);
 		}
 
 		public List<RestaurantTable> TGetAll()
 		{
-			throw new NotImplementedException();
+			return _restaurantTableDal.GetAll();
 		}
 
 		public int TTotalTableCount()
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
 
 		public void TUpdate(RestaurantTable entity)
 		{
-			throw new NotImplementedException();
+			_restaurantTableDal.Update(entity);
 		}
 	}
 }
